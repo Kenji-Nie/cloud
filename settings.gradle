@@ -9,5 +9,6 @@ include 'eureka-client',
         'eureka-resources',
         'eureka-examples',
         'eureka-test-utils'
-        'gateway'
+include 'gateway'
+include 'spring-cloud-netflix-eureka-server'
 
