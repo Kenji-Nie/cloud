@@ -156,6 +156,8 @@ public class InstanceInfo {
     private String version = VERSION_UNKNOWN;
     @Auto
     private volatile String input;
+    @Auto
+    private volatile String output;
 
     private InstanceInfo() {
         this.metadata = new ConcurrentHashMap<String, String>();
@@ -1343,6 +1345,15 @@ public class InstanceInfo {
 
     public void setInput(String input) {
         this.input = input;
+    }
+
+    @JsonProperty("output")
+    public String getOutput() {
+        return output;
+    }
+
+    public void setOutput(String output) {
+        this.output = output;
     }
 
     public enum ActionType {
