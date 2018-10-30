@@ -154,12 +154,15 @@ public class InstanceInfo {
     @Auto
     private volatile String asgName;
     private String version = VERSION_UNKNOWN;
+    @Auto
+    private volatile String input;
 
     private InstanceInfo() {
         this.metadata = new ConcurrentHashMap<String, String>();
         this.lastUpdatedTimestamp = System.currentTimeMillis();
         this.lastDirtyTimestamp = lastUpdatedTimestamp;
     }
+
 
     @JsonCreator
     public InstanceInfo(
@@ -188,7 +191,8 @@ public class InstanceInfo {
             @JsonProperty("lastUpdatedTimestamp") Long lastUpdatedTimestamp,
             @JsonProperty("lastDirtyTimestamp") Long lastDirtyTimestamp,
             @JsonProperty("actionType") ActionType actionType,
-            @JsonProperty("asgName") String asgName) {
+            @JsonProperty("asgName") String asgName,
+            @JsonProperty("input") String input) {
         this.instanceId = instanceId;
         this.sid = sid;
         this.appName = StringCache.intern(appName);
@@ -215,6 +219,7 @@ public class InstanceInfo {
         this.lastDirtyTimestamp = lastDirtyTimestamp;
         this.actionType = actionType;
         this.asgName = StringCache.intern(asgName);
+        this.input = input;
 
         // ---------------------------------------------------------------
         // for compatibility
@@ -1329,6 +1334,15 @@ public class InstanceInfo {
     @JsonIgnore
     public String getVersion() {
         return version;
+    }
+
+    @JsonProperty("input")
+    public String getInput() {
+        return input;
+    }
+
+    public void setInput(String input) {
+        this.input = input;
     }
 
     public enum ActionType {
