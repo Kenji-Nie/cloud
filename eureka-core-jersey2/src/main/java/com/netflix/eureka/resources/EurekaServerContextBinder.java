@@ -7,7 +7,7 @@ import com.netflix.eureka.EurekaServerContext;
 import com.netflix.eureka.EurekaServerContextHolder;
 
 /**
- * Jersey2 binder for the EurekaServerContext. Replaces the GuiceFilter in the server WAR web.xml
+ * Jersey2 binder for the EurekaServerContext. Replaces the GuiceFilter in the server WAR com.kenji.web.xml
  * @author Matt Nelson
  */
 public class EurekaServerContextBinder extends AbstractBinder {

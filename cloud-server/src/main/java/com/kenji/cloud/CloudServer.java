@@ -14,10 +14,11 @@ import org.springframework.web.client.RestTemplate;
 @EnableEurekaServer
 @EnableDiscoveryClient
 @EnableEurekaClient
-public class CloudApplication {
+@EnableHystrix
+public class CloudServer {
 
     public static void main(String[] args) {
-        SpringApplication.run(CloudApplication.class, args);
+        SpringApplication.run(CloudServer.class, args);
     }
 
     @Bean

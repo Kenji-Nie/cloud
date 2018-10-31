@@ -1,0 +1,19 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+server:
+  port: 8080
+spring:
+  application:
+    name: api-gateway
+
+zuul:
+  routes:
+    eureka:
+      path: /eureka/**
+      url: http://127.0.0.1:8761/eureka/
+    eureka-index:
+      path: /
+      url: http://127.0.0.1:8761/
+

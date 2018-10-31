@@ -14,15 +14,15 @@ public class InvokeController {
     @Autowired
     RestTemplate restTemplate;
 
-//    @HystrixCommand(fallbackMethod = "invokeError")
+    @HystrixCommand(fallbackMethod = "invokeError")
     @RequestMapping(value = "/invoke")
-    public String invoke(@RequestParam String serviceName, @RequestParam String param) {
-        System.out.println("http://" + serviceName + "/" + param);
-        return restTemplate.getForObject("http://" + serviceName + "/" + param, String.class);
+    public String service(@RequestParam String serviceName, @RequestParam String param) {
+        return restTemplate.getForObject("http://" + serviceName + "/" + param, String.class) + "--this client 8764";
     }
 
 
     public String invokeError(String serviceName, String param) {
         return "error";
     }
+
 }
