@@ -5,7 +5,7 @@ eureka:
   instance:
     hostname: localhost
   client:
-    registerWithEureka: false
+    registerWithEureka: true
     fetchRegistry: false
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
@@ -20,6 +20,9 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+#  application:
+#    name: service-ribbon
+
 
 jwt:
   header: Authorization

@@ -63,8 +63,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/**/*.js").permitAll()
                 .antMatchers("/auth/**").permitAll()
 //                .anyRequest().authenticated();
-                .antMatchers("/admin/**").access("hasAnyAuthority('ROLE_ADMIN')")
-                .anyRequest().authenticated();
+                .antMatchers("/admin/**").access("hasAnyAuthority('ROLE_ADMIN')");
+//                .anyRequest().authenticated();
 //                .anyRequest().authenticated().and().formLogin().loginPage("/login")
 //                .failureUrl("/login?error").permitAll().and().logout().permitAll();
         httpSecurity.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
