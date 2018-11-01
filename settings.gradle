@@ -10,6 +10,5 @@ include 'eureka-client',
         'eureka-examples',
         'eureka-test-utils'
 include 'spring-cloud-netflix-eureka-server'
-include 'cloud-server'
 include 'cloud-gateway'
 

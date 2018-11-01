@@ -1,19 +1,35 @@
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
 server:
-  port: 8080
+  port: 8762
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: true
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
 spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/pm?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
   application:
-    name: api-gateway
+    name: ribbon
 
-zuul:
-  routes:
-    eureka:
-      path: /eureka/**
-      url: http://127.0.0.1:8761/eureka/
-    eureka-index:
-      path: /
-      url: http://127.0.0.1:8761/
-
+jwt:
+  header: Authorization
+  secret: mySecret
+  expiration: 100
+  tokenHead: Bearer
+  route:
+    authentication:
+      path: auth/login
+      refresh: auth/refresh
+      register: auth/register

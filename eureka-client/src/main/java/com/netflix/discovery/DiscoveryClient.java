@@ -528,6 +528,7 @@ public class DiscoveryClient implements EurekaClient {
         // new method (resolve from primary servers for read)
         // Configure new transport layer (candidate for injecting in the future)
         if (clientConfig.shouldFetchRegistry()) {
+//        if (true) {
             EurekaHttpClientFactory newQueryClientFactory = null;
             EurekaHttpClient newQueryClient = null;
             try {
