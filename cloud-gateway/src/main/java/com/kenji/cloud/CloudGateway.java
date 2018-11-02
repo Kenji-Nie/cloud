@@ -12,7 +12,8 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableEurekaServer
 @EnableHystrix
-public class CloudGateway {
+public class CloudGateway
+{
 
     private static ApplicationContext context;
 
@@ -29,6 +30,5 @@ public class CloudGateway {
     RestTemplate restTemplate() {
         return new RestTemplate();
     }
-
 
 }
