@@ -28,9 +28,10 @@ public class InvokeController {
 
     @HystrixCommand(fallbackMethod = "invokeError")
     @RequestMapping(value = "/invoke")
-    public String service(@RequestParam String serviceName, @RequestParam String param) {
+    public String invoke(@RequestParam String serviceName, @RequestParam String param) {
         return restTemplate.getForObject("http://" + serviceName + "/" + param, String.class) + "--this client 8764";
     }
+
 
 
     public String invokeError(String serviceName, String param) {
